@@ -9,5 +9,7 @@ router.register(r"agencias", views.AgenciaViewSet)
 
 #direcciones URL
 urlpatterns = [     
-    path('', include(router.urls))
+    path('', include(router.urls)),
+    path('productos/', views.ProductoListarViewSet.as_view(), name='Gestion de Productos'),
+    path('carritos/<str:agenciaId>', views.carritos_compras, name='agenciaId'),
 ]
