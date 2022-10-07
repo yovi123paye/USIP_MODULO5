@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('inventario/', include('inventario.urls')),
     path("auth/", include("dj_rest_auth.urls")),
+    path('construyeya/', include('construyeya.urls')),
    
 ]
 
