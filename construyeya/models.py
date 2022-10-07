@@ -41,7 +41,6 @@ class Producto(models.Model):
         return "Producto - %s" % self.nombre
 
 class Agencia(models.Model):
-    id = models.Index()
-    nombreAgencia = models.CharField(_MAX_LENGTH=150)
-    direccionAgencia = models.CharField(_MAX_LENGTH=150)
+    nombreAgencia = models.CharField(max_length=150, unique=True)
+    direccionAgencia = models.CharField(max_length=150)
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE) 
