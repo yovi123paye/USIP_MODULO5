@@ -12,8 +12,8 @@ def validar_nombre_categoria(value):
         raise ValidationError("No es una opcion permitida")
 
 def validar_texto(value):
-    if len(value) < 3:
-        raise ValidationError("No se acepta texto vacio")
+    if len(value) == 1:
+        raise ValidationError("El texto introducido es muy corto")
 
 def validar_positivo(value):
     if value <= 0:
