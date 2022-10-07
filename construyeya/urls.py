@@ -5,6 +5,7 @@ from . import views
 
 router = DefaultRouter()
 router.register(r"carritos", views.CarritoViewSet)
+router.register(r"agencias", views.AgenciaViewSet)
 
 #direcciones URL
 urlpatterns = [     
