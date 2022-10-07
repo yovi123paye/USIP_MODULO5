@@ -1,4 +1,5 @@
 from pyexpat import model
+from statistics import mode
 from unittest.util import _MAX_LENGTH
 from django.db import models
 from django.conf import settings
@@ -43,4 +44,13 @@ class Producto(models.Model):
 class Agencia(models.Model):
     nombreAgencia = models.CharField(max_length=150, unique=True)
     direccionAgencia = models.CharField(max_length=150)
-    producto = models.ForeignKey(Producto, on_delete=models.CASCADE) 
+    def __str__(self):
+        return "Agencia - %s" % self.nombreAgencia
+
+class Carrito(models.Model):
+     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+     agencia =  models.ForeignKey(Agencia, on_delete=models.CASCADE)
+     fechaEntrega = models.DateField(editable=True)
+     direccionEntrega = models.CharField(max_length=100)
+    # precioTotal =  models.DecimalField(decimal_places=2, max_digits=10)
+
