@@ -11,6 +11,13 @@ def validar_nombre_categoria(value):
     if value == 'No permitido':
         raise ValidationError("No es una opcion permitida")
 
-def validar_nombre_subject(value):
-    if value == 'Comida':
-        raise ValidationError("No es una opcion permitida")
+def validar_texto(value):
+    if len(value) < 3:
+        raise ValidationError("No se acepta texto vacio")
+
+def validar_positivo(value):
+    if value <= 0:
+        raise ValidationError(
+            '%(value)s debe ser un mayor cero 0',
+            params={'value': value}
+        )
